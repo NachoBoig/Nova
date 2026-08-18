@@ -1,0 +1,3508 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NOVA STUDIO | Trabajos Previos</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+
+        :root {
+            --bg-dark: #070510;
+            --card-bg: rgba(20, 14, 40, 0.65);
+            --card-bg-solid: #100b20;
+            --border-glow: rgba(168, 85, 247, 0.35);
+            --neon-purple: #a855f7;
+            --neon-light: #c084fc;
+            --text-muted: #a1a1aa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #fff;
+            overflow-x: hidden;
+
+            background-image:
+                radial-gradient(
+                    circle at 20% 15%,
+                    rgba(139, 92, 246, 0.20) 0%,
+                    transparent 40%
+                ),
+                radial-gradient(
+                    circle at 80% 50%,
+                    rgba(168, 85, 247, 0.15) 0%,
+                    transparent 45%
+                ),
+                radial-gradient(
+                    circle at 50% 85%,
+                    rgba(99, 102, 241, 0.15) 0%,
+                    transparent 50%
+                );
+
+            background-attachment: fixed;
+        }
+
+        body::before {
+            content: '';
+
+            position: fixed;
+            inset: 0;
+
+            background-image:
+                radial-gradient(1.5px 1.5px at 20px 30px, #fff, transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,.8), transparent),
+                radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+                radial-gradient(2px 2px at 160px 120px, rgba(168,85,247,.9), transparent);
+
+            background-repeat: repeat;
+            background-size: 250px 250px;
+
+            opacity: .35;
+
+            z-index: -1;
+            pointer-events: none;
+        }
+
+
+        /* =========================
+           GENERAL
+        ========================= */
+
+        .glass-card {
+            background: var(--card-bg);
+
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+
+            border: 1px solid var(--border-glow);
+            border-radius: 20px;
+
+            box-shadow:
+                0 8px 32px rgba(0,0,0,.4),
+                0 0 15px rgba(168,85,247,.1);
+
+            transition: all .3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(168,85,247,.7);
+
+            box-shadow:
+                0 8px 32px rgba(0,0,0,.5),
+                0 0 25px rgba(168,85,247,.3);
+
+            transform: translateY(-4px);
+        }
+
+        .text-neon {
+            color: var(--neon-purple);
+
+            text-shadow:
+                0 0 12px rgba(168,85,247,.6);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 24px 8%;
+
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+        }
+
+        .logo-sub {
+            font-size: .65rem;
+            letter-spacing: 4px;
+            color: var(--neon-purple);
+        }
+
+        nav a {
+            color: #d1d5db;
+            text-decoration: none;
+
+            margin-left: 28px;
+
+            font-size: .85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: var(--neon-purple);
+
+            text-shadow:
+                0 0 8px rgba(168,85,247,.5);
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .portfolio-hero {
+            text-align: center;
+
+            padding: 75px 0 55px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            color: var(--neon-light);
+
+            font-size: .78rem;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 18px;
+        }
+
+        .portfolio-hero h1 {
+            font-size: 3rem;
+            line-height: 1.15;
+
+            font-weight: 800;
+
+            letter-spacing: -1px;
+
+            margin-bottom: 22px;
+        }
+
+        .portfolio-hero p {
+            max-width: 760px;
+
+            margin: auto;
+
+            color: #a1a1aa;
+
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           PORTFOLIO GRID
+        ========================= */
+
+        .portfolio-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 26px;
+        }
+
+        .portfolio-featured {
+            grid-column: 1 / -1;
+
+            padding: 32px;
+        }
+
+        .portfolio-card {
+            padding: 26px;
+        }
+
+
+        /* =========================
+           PROJECT VISUAL
+        ========================= */
+
+        .project-visual {
+            width: 100%;
+            height: 250px;
+
+            border-radius: 15px;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(168,85,247,.12),
+                    rgba(7,5,16,.8)
+                );
+
+            border: 1px solid rgba(255,255,255,.08);
+
+            margin-bottom: 22px;
+        }
+
+        .featured-visual {
+            height: 340px;
+        }
+
+        .project-visual img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            transition: transform .5s ease;
+        }
+
+        .project-visual:hover img {
+            transform: scale(1.03);
+        }
+
+
+        /* =========================
+           PROJECT TEXT
+        ========================= */
+
+        .project-category {
+            display: inline-flex;
+
+            align-items: center;
+            gap: 7px;
+
+            color: var(--neon-light);
+
+            font-size: .72rem;
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            margin-bottom: 12px;
+        }
+
+        .project-title {
+            font-size: 1.65rem;
+
+            font-weight: 800;
+
+            margin-bottom: 12px;
+        }
+
+        .featured-title {
+            font-size: 2rem;
+        }
+
+        .project-description {
+            color: #a1a1aa;
+
+            font-size: .9rem;
+
+            line-height: 1.65;
+
+            margin-bottom: 18px;
+        }
+
+
+        /* =========================
+           TAGS
+        ========================= */
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 7px;
+
+            margin: 18px 0;
+        }
+
+        .project-tag {
+            padding: 6px 10px;
+
+            border-radius: 20px;
+
+            background: rgba(168,85,247,.08);
+
+            border: 1px solid rgba(168,85,247,.28);
+
+            color: #d4d4d8;
+
+            font-size: .68rem;
+            font-weight: 700;
+        }
+
+
+        /* =========================
+           RESULTS
+        ========================= */
+
+        .results-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 12px;
+
+            margin-top: 20px;
+        }
+
+        .result-box {
+            padding: 17px;
+
+            border-radius: 14px;
+
+            background: rgba(168,85,247,.06);
+
+            border: 1px solid rgba(168,85,247,.2);
+        }
+
+        .result-number {
+            color: var(--neon-light);
+
+            font-size: 1.35rem;
+            font-weight: 800;
+
+            margin-bottom: 4px;
+        }
+
+        .result-label {
+            color: #a1a1aa;
+
+            font-size: .7rem;
+
+            line-height: 1.4;
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .view-project-btn {
+            width: 100%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 9px;
+
+            margin-top: 22px;
+
+            padding: 13px 18px;
+
+            border-radius: 50px;
+
+            background: linear-gradient(
+                135deg,
+                #7c3aed 0%,
+                #a855f7 100%
+            );
+
+            border: 1px solid rgba(255,255,255,.15);
+
+            color: white;
+
+            font-size: .76rem;
+
+            font-weight: 800;
+
+            letter-spacing: .8px;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 0 18px rgba(168,85,247,.35);
+
+            transition: .3s;
+        }
+
+        .view-project-btn:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 0 30px rgba(168,85,247,.65);
+        }
+
+
+        /* =========================
+           EXTERNAL LINK
+        ========================= */
+
+        .project-link {
+            display: inline-flex;
+
+            align-items: center;
+            gap: 7px;
+
+            margin-top: 17px;
+
+            color: #c4c4cc;
+
+            text-decoration: none;
+
+            font-size: .72rem;
+
+            font-weight: 700;
+
+            transition: .3s;
+        }
+
+        .project-link:hover {
+            color: var(--neon-light);
+        }
+
+
+        /* =========================
+           MODAL
+        ========================= */
+
+        .project-modal {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 1000;
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 25px;
+
+            background: rgba(3,2,8,.88);
+
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+
+            opacity: 0;
+
+            transition: opacity .3s ease;
+        }
+
+        .project-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+
+        .modal-window {
+            position: relative;
+
+            width: min(1000px, 100%);
+
+            max-height: 92vh;
+
+            overflow-y: auto;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(18,12,35,.98),
+                    rgba(7,5,16,.98)
+                );
+
+            border: 1px solid rgba(168,85,247,.4);
+
+            border-radius: 24px;
+
+            box-shadow:
+                0 25px 100px rgba(0,0,0,.7),
+                0 0 50px rgba(168,85,247,.12);
+
+            transform: translateY(20px) scale(.98);
+
+            transition: transform .3s ease;
+        }
+
+        .project-modal.active .modal-window {
+            transform: translateY(0) scale(1);
+        }
+
+
+        /* scrollbar */
+
+        .modal-window::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        .modal-window::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .modal-window::-webkit-scrollbar-thumb {
+            background: rgba(168,85,247,.4);
+            border-radius: 20px;
+        }
+
+
+        .modal-header {
+            position: sticky;
+
+            top: 0;
+
+            z-index: 10;
+
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 24px;
+
+            background: rgba(10,6,20,.88);
+
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(255,255,255,.06);
+        }
+
+        .modal-header-title {
+            font-size: .72rem;
+
+            color: var(--neon-light);
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+        }
+
+        .modal-close {
+            width: 38px;
+            height: 38px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,.05);
+
+            border: 1px solid rgba(255,255,255,.1);
+
+            color: white;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+        .modal-close:hover {
+            background: rgba(168,85,247,.2);
+
+            border-color: var(--neon-purple);
+
+            transform: rotate(90deg);
+        }
+
+
+        .modal-content {
+            padding: 40px;
+        }
+
+
+        .modal-eyebrow {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color: var(--neon-light);
+
+            font-size: .73rem;
+
+            font-weight: 800;
+
+            letter-spacing: 1.8px;
+
+            margin-bottom: 15px;
+        }
+
+        .modal-content h2 {
+            font-size: 2.4rem;
+
+            line-height: 1.15;
+
+            margin-bottom: 16px;
+
+            font-weight: 800;
+        }
+
+        .modal-intro {
+            color: #c4c4cc;
+
+            font-size: 1rem;
+
+            line-height: 1.75;
+
+            max-width: 820px;
+
+            margin-bottom: 35px;
+        }
+
+
+        /* =========================
+           CASE STUDY SECTIONS
+        ========================= */
+
+        .case-section {
+            margin-top: 45px;
+        }
+
+        .case-section-title {
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            font-size: 1.15rem;
+
+            font-weight: 800;
+
+            margin-bottom: 14px;
+        }
+
+        .case-section-title i {
+            color: var(--neon-purple);
+        }
+
+        .case-section p {
+            color: #a1a1aa;
+
+            font-size: .9rem;
+
+            line-height: 1.75;
+
+            margin-bottom: 18px;
+        }
+
+
+        /* =========================
+           CASE GRID
+        ========================= */
+
+        .case-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 15px;
+
+            margin-top: 20px;
+        }
+
+        .case-grid.three {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .case-image {
+            width: 100%;
+
+            aspect-ratio: 16 / 10;
+
+            object-fit: cover;
+
+            border-radius: 13px;
+
+            border: 1px solid rgba(255,255,255,.08);
+
+            cursor: pointer;
+
+            transition: .3s;
+
+            background: #100b20;
+        }
+
+        .case-image:hover {
+            transform: scale(1.015);
+
+            border-color: rgba(168,85,247,.6);
+
+            box-shadow:
+                0 0 22px rgba(168,85,247,.2);
+        }
+
+
+        /* =========================
+           CASE HIGHLIGHTS
+        ========================= */
+
+        .highlight-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 14px;
+
+            margin-top: 22px;
+        }
+
+        .highlight {
+            padding: 22px 18px;
+
+            border-radius: 15px;
+
+            background: rgba(168,85,247,.055);
+
+            border: 1px solid rgba(168,85,247,.18);
+        }
+
+        .highlight-number {
+            color: var(--neon-light);
+
+            font-size: 1.45rem;
+
+            font-weight: 800;
+
+            margin-bottom: 5px;
+        }
+
+        .highlight-text {
+            color: #a1a1aa;
+
+            font-size: .72rem;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================
+           PROCESS
+        ========================= */
+
+        .process-list {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 12px;
+
+            margin-top: 22px;
+        }
+
+        .process-step {
+            padding: 18px;
+
+            text-align: center;
+
+            border-radius: 14px;
+
+            background: rgba(255,255,255,.025);
+
+            border: 1px solid rgba(255,255,255,.07);
+        }
+
+        .process-number {
+            width: 32px;
+            height: 32px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            margin: 0 auto 10px;
+
+            border-radius: 50%;
+
+            border: 1px solid var(--neon-purple);
+
+            color: var(--neon-light);
+
+            font-size: .75rem;
+
+            font-weight: 800;
+        }
+
+        .process-step span {
+            color: #a1a1aa;
+
+            font-size: .7rem;
+
+            line-height: 1.4;
+        }
+
+
+        /* =========================
+           MODAL CTA
+        ========================= */
+
+        .modal-cta {
+            margin-top: 45px;
+
+            padding: 28px;
+
+            text-align: center;
+
+            border-radius: 17px;
+
+            background: rgba(168,85,247,.06);
+
+            border: 1px solid rgba(168,85,247,.2);
+        }
+
+        .modal-cta p {
+            margin: 0 0 18px;
+        }
+
+        .modal-cta a {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 12px 22px;
+
+            border-radius: 50px;
+
+            color: white;
+
+            text-decoration: none;
+
+            background: linear-gradient(
+                135deg,
+                #7c3aed,
+                #a855f7
+            );
+
+            font-size: .75rem;
+
+            font-weight: 800;
+        }
+
+
+        /* =========================
+           LIGHTBOX
+        ========================= */
+
+        .lightbox {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 2000;
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 25px;
+
+            background: rgba(0,0,0,.93);
+
+            opacity: 0;
+
+            transition: opacity .25s;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox img {
+            max-width: 95vw;
+            max-height: 90vh;
+
+            object-fit: contain;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 0 70px rgba(168,85,247,.2);
+        }
+
+        .lightbox-close {
+            position: absolute;
+
+            top: 22px;
+            right: 25px;
+
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,.08);
+
+            border: 1px solid rgba(255,255,255,.15);
+
+            color: white;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .back-wrapper {
+            display: flex;
+
+            justify-content: center;
+
+            margin: 65px 0 30px;
+        }
+
+        .back-link {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            color: #c4c4cc;
+
+            text-decoration: none;
+
+            font-size: .8rem;
+
+            font-weight: 700;
+
+            letter-spacing: .7px;
+
+            transition: .3s;
+        }
+
+        .back-link:hover {
+            color: var(--neon-purple);
+        }
+
+        footer {
+            text-align: center;
+
+            padding: 40px 20px;
+
+            border-top: 1px solid rgba(255,255,255,.05);
+
+            color: #71717a;
+
+            font-size: .8rem;
+
+            letter-spacing: 2px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-featured {
+                grid-column: auto;
+            }
+
+            .featured-visual {
+                height: 280px;
+            }
+
+            .highlight-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .process-list {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            header nav {
+                display: none;
+            }
+
+            .portfolio-hero {
+                padding-top: 50px;
+            }
+
+            .portfolio-hero h1 {
+                font-size: 2.3rem;
+            }
+
+            .portfolio-featured {
+                padding: 20px;
+            }
+
+            .project-title,
+            .featured-title {
+                font-size: 1.55rem;
+            }
+
+            .results-grid,
+            .case-grid,
+            .case-grid.three,
+            .highlight-grid,
+            .process-list {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                padding: 28px 20px;
+            }
+
+            .modal-content h2 {
+                font-size: 1.9rem;
+            }
+
+            .project-modal {
+                padding: 8px;
+            }
+
+            .modal-window {
+                max-height: 96vh;
+                border-radius: 18px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header>
+
+    <a href="index.html" class="logo">
+
+        <span class="logo-title">
+            NOVA
+        </span>
+
+        <span class="logo-sub">
+            STUDIO
+        </span>
+
+    </a>
+
+
+    <nav>
+
+        <a href="index.html">
+            INICIO
+        </a>
+
+        <a href="index.html#servicios">
+            SERVICIOS
+        </a>
+
+        <a href="NOVA_trabajos-previos.html">
+            TRABAJOS
+        </a>
+
+        <a href="index.html#contacto">
+            CONTACTO
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<main class="container">
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="portfolio-hero">
+
+    <div class="eyebrow">
+
+        <i data-lucide="briefcase" size="17"></i>
+
+        EXPERIENCIA PROFESIONAL
+
+    </div>
+
+
+    <h1>
+
+        TRABAJOS
+        <span class="text-neon">
+            PREVIOS
+        </span>
+
+    </h1>
+
+
+    <p>
+
+        Una selección de proyectos reales desarrollados
+        para empresas y emprendimientos, combinando
+        diseño, desarrollo, comunicación, publicidad
+        y tecnología.
+
+    </p>
+
+</section>
+
+
+
+<!-- =========================================================
+     PORTFOLIO
+========================================================= -->
+
+<section class="portfolio-grid">
+
+
+
+<!-- =========================================================
+     BIOBARICA CARD
+========================================================= -->
+
+<article class="glass-card portfolio-featured">
+
+    <div class="project-visual featured-visual">
+
+        <img
+            src="img/portfolio/biobarica/portada.jpg"
+            alt="Biobarica La Plata"
+        >
+
+    </div>
+
+
+    <div class="project-category">
+
+        <i data-lucide="star" size="15"></i>
+
+        PROYECTO DESTACADO
+
+    </div>
+
+
+    <h2 class="project-title featured-title">
+
+        BIOBARICA
+        <span class="text-neon">
+            LA PLATA
+        </span>
+
+    </h2>
+
+
+    <p class="project-description">
+
+        Proyecto integral que comenzó con el desarrollo
+        de la presencia digital de la empresa y evolucionó
+        hacia un ecosistema compuesto por sitio web,
+        contenido, campañas de Meta Ads, automatización
+        de consultas y una herramienta propia de gestión
+        de pacientes.
+
+    </p>
+
+
+    <div class="project-tags">
+
+        <span class="project-tag">DISEÑO WEB</span>
+        <span class="project-tag">META ADS</span>
+        <span class="project-tag">CONTENIDO</span>
+        <span class="project-tag">AUTOMATIZACIÓN</span>
+        <span class="project-tag">DESARROLLO</span>
+        <span class="project-tag">BASE DE DATOS</span>
+        <span class="project-tag">HOSTING</span>
+
+    </div>
+
+
+    <div class="results-grid">
+
+        <div class="result-box">
+
+            <div class="result-number">
+                60–100
+            </div>
+
+            <div class="result-label">
+                turnos aproximados
+                conseguidos por mes
+            </div>
+
+        </div>
+
+
+        <div class="result-box">
+
+            <div class="result-number">
+                +1 año
+            </div>
+
+            <div class="result-label">
+                de campañas publicitarias
+                realizadas semanalmente
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <button
+        class="view-project-btn"
+        onclick="openProject('biobarica')"
+    >
+
+        VER PROYECTO COMPLETO
+
+        <i data-lucide="arrow-right" size="16"></i>
+
+    </button>
+
+</article>
+
+
+
+<!-- =========================================================
+     PREDIO 98
+========================================================= -->
+
+<article class="glass-card portfolio-card">
+
+    <div class="project-visual">
+
+        <img
+            src="img/portfolio/predio98/portada.jpg"
+            alt="Predio 98"
+        >
+
+    </div>
+
+
+    <div class="project-category">
+        PRESENCIA DIGITAL
+    </div>
+
+
+    <h2 class="project-title">
+        PREDIO 98
+    </h2>
+
+
+    <p class="project-description">
+
+        Desarrollo de contenido para redes sociales,
+        presencia web y automatización de consultas
+        para una marca con una comunidad consolidada
+        en La Plata.
+
+    </p>
+
+
+    <div class="project-tags">
+
+        <span class="project-tag">REELS</span>
+        <span class="project-tag">INSTAGRAM</span>
+        <span class="project-tag">WEB</span>
+        <span class="project-tag">AUTOMATIZACIÓN</span>
+
+    </div>
+
+
+    <button
+        class="view-project-btn"
+        onclick="openProject('predio98')"
+    >
+
+        VER MÁS
+
+        <i data-lucide="arrow-right" size="16"></i>
+
+    </button>
+
+
+    <a
+        href="https://predio98.netlify.app"
+        target="_blank"
+        class="project-link"
+    >
+
+        VER SITIO WEB
+
+        <i data-lucide="external-link" size="14"></i>
+
+    </a>
+
+</article>
+
+
+
+<!-- =========================================================
+     PALACIO
+========================================================= -->
+
+<article class="glass-card portfolio-card">
+
+    <div class="project-visual">
+
+        <img
+            src="img/portfolio/palacio/portada.jpg"
+            alt="El Palacio del Peinador"
+        >
+
+    </div>
+
+
+    <div class="project-category">
+        E-COMMERCE · EDUCACIÓN
+    </div>
+
+
+    <h2 class="project-title">
+        EL PALACIO DEL PEINADOR
+    </h2>
+
+
+    <p class="project-description">
+
+        Desarrollo de cursos digitales de peluquería
+        y creación y administración de la tienda online
+        de la firma.
+
+    </p>
+
+
+    <div class="project-tags">
+
+        <span class="project-tag">CURSOS</span>
+        <span class="project-tag">E-COMMERCE</span>
+        <span class="project-tag">WEB</span>
+
+    </div>
+
+
+    <button
+        class="view-project-btn"
+        onclick="openProject('palacio')"
+    >
+
+        VER MÁS
+
+        <i data-lucide="arrow-right" size="16"></i>
+
+    </button>
+
+
+    <a
+        href="https://elpalaciodelpeinador.com.ar"
+        target="_blank"
+        class="project-link"
+    >
+
+        VER TIENDA
+
+        <i data-lucide="external-link" size="14"></i>
+
+    </a>
+
+</article>
+
+
+
+<!-- =========================================================
+     PIEDRA LIBRE
+========================================================= -->
+
+<article class="glass-card portfolio-card">
+
+    <div class="project-visual">
+
+        <img
+            src="img/portfolio/piedra-libre/portada.jpg"
+            alt="Piedra Libre"
+        >
+
+    </div>
+
+
+    <div class="project-category">
+        DESARROLLO · CONTENIDO
+    </div>
+
+
+    <h2 class="project-title">
+        PIEDRA LIBRE
+    </h2>
+
+
+    <p class="project-description">
+
+        Desarrollo y administración web, infraestructura,
+        diseño de contenido y creación de catálogos
+        visuales para redes sociales.
+
+    </p>
+
+
+    <div class="project-tags">
+
+        <span class="project-tag">WEB</span>
+        <span class="project-tag">SERVIDOR</span>
+        <span class="project-tag">DISEÑO</span>
+        <span class="project-tag">CATÁLOGOS</span>
+
+    </div>
+
+
+    <button
+        class="view-project-btn"
+        onclick="openProject('piedra')"
+    >
+
+        VER MÁS
+
+        <i data-lucide="arrow-right" size="16"></i>
+
+    </button>
+
+
+    <a
+        href="https://piedra-libre.netlify.app"
+        target="_blank"
+        class="project-link"
+    >
+
+        VER SITIO WEB
+
+        <i data-lucide="external-link" size="14"></i>
+
+    </a>
+
+</article>
+
+
+
+<!-- =========================================================
+     GEMINIX
+========================================================= -->
+
+<article class="glass-card portfolio-card">
+
+    <div class="project-visual">
+
+        <img
+            src="img/portfolio/geminix/portada.jpg"
+            alt="Joyería Geminix"
+        >
+
+    </div>
+
+
+    <div class="project-category">
+        PUBLICIDAD · REDES · WEB
+    </div>
+
+
+    <h2 class="project-title">
+        JOYERÍA GEMINIX
+    </h2>
+
+
+    <p class="project-description">
+
+        Gestión de campañas de Meta Ads, programación
+        de contenido, automatización de respuestas y
+        desarrollo de un catálogo online.
+
+    </p>
+
+
+    <div class="project-tags">
+
+        <span class="project-tag">META ADS</span>
+        <span class="project-tag">FACEBOOK</span>
+        <span class="project-tag">INSTAGRAM</span>
+        <span class="project-tag">WEB</span>
+
+    </div>
+
+
+    <button
+        class="view-project-btn"
+        onclick="openProject('geminix')"
+    >
+
+        VER MÁS
+
+        <i data-lucide="arrow-right" size="16"></i>
+
+    </button>
+
+
+    <a
+        href="https://joyeriageminix.netlify.app"
+        target="_blank"
+        class="project-link"
+    >
+
+        VER CATÁLOGO
+
+        <i data-lucide="external-link" size="14"></i>
+
+    </a>
+
+</article>
+
+
+
+<!-- =========================================================
+     SOPHIA
+========================================================= -->
+
+<article class="glass-card portfolio-card">
+
+    <div class="project-visual">
+
+        <img
+            src="img/portfolio/sophia/portada.jpg"
+            alt="Sophia Shop"
+        >
+
+    </div>
+
+
+    <div class="project-category">
+        DESARROLLO · E-COMMERCE
+    </div>
+
+
+    <h2 class="project-title">
+        SOPHIA
+    </h2>
+
+
+    <p class="project-description">
+
+        Desarrollo completo de una tienda online
+        a medida con infraestructura propia y
+        herramientas especiales para facilitar
+        la administración.
+
+    </p>
+
+
+    <div class="project-tags">
+
+        <span class="project-tag">E-COMMERCE</span>
+        <span class="project-tag">SERVIDOR</span>
+        <span class="project-tag">STOCK</span>
+        <span class="project-tag">PAGOS</span>
+
+    </div>
+
+
+    <button
+        class="view-project-btn"
+        onclick="openProject('sophia')"
+    >
+
+        VER MÁS
+
+        <i data-lucide="arrow-right" size="16"></i>
+
+    </button>
+
+
+    <a
+        href="https://sophia-shop.netlify.app"
+        target="_blank"
+        class="project-link"
+    >
+
+        VER TIENDA
+
+        <i data-lucide="external-link" size="14"></i>
+
+    </a>
+
+</article>
+
+
+</section>
+
+
+
+<!-- =========================================================
+     BACK
+========================================================= -->
+
+<div class="back-wrapper">
+
+    <a
+        href="index.html#trabajos"
+        class="back-link"
+    >
+
+        <i data-lucide="arrow-left" size="17"></i>
+
+        VOLVER A LA PÁGINA PRINCIPAL
+
+    </a>
+
+</div>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     MODAL: BIOBARICA
+========================================================= -->
+
+<div
+    class="project-modal"
+    id="modal-biobarica"
+    onclick="closeOnBackground(event, 'biobarica')"
+>
+
+<div class="modal-window">
+
+
+    <div class="modal-header">
+
+        <span class="modal-header-title">
+            CASO DE ESTUDIO · BIOBARICA LA PLATA
+        </span>
+
+        <button
+            class="modal-close"
+            onclick="closeProject('biobarica')"
+        >
+            <i data-lucide="x" size="19"></i>
+        </button>
+
+    </div>
+
+
+    <div class="modal-content">
+
+
+        <div class="modal-eyebrow">
+
+            <i data-lucide="activity" size="16"></i>
+
+            PROYECTO INTEGRAL
+
+        </div>
+
+
+        <h2>
+            BIOBARICA
+            <span class="text-neon">
+                LA PLATA
+            </span>
+        </h2>
+
+
+        <p class="modal-intro">
+
+            Uno de los proyectos más completos desarrollados
+            hasta el momento. El trabajo comenzó con el diseño
+            y desarrollo del sitio web profesional y fue
+            evolucionando junto con las necesidades del negocio:
+            comunicación, captación, automatización y finalmente
+            una herramienta propia para la gestión diaria de
+            pacientes.
+
+        </p>
+
+
+        <!-- DESAFÍO -->
+
+        <section class="case-section">
+
+            <h3 class="case-section-title">
+
+                <i data-lucide="target" size="19"></i>
+
+                EL DESAFÍO
+
+            </h3>
+
+            <p>
+
+                El objetivo inicial era construir una presencia
+                digital profesional para una empresa de salud
+                que necesitaba comunicar claramente sus servicios
+                y facilitar el contacto con potenciales pacientes.
+
+                <br><br>
+
+                A medida que la estrategia comenzó a generar
+                consultas y nuevos turnos, aparecieron nuevas
+                necesidades: producir contenido de forma constante,
+                gestionar campañas, responder consultas y
+                organizar los pacientes.
+
+            </p>
+
+        </section>
+
+
+        <!-- WEB -->
+
+        <section class="case-section">
+
+            <h3 class="case-section-title">
+
+                <i data-lucide="globe" size="19"></i>
+
+                SITIO WEB
+
+            </h3>
+
+            <p>
+
+                Diseñamos y desarrollamos el sitio web profesional
+                de Biobarica La Plata, trabajando tanto la parte
+                visual como la estructura y experiencia de usuario.
+
+                El sitio continúa activo actualmente.
+
+            </p>
+
+
+            <div class="case-grid">
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/biobarica/web-01.jpg"
+                    alt="Biobarica web"
+                    onclick="openLightbox(this.src)"
+                >
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/biobarica/web-02.jpg"
+                    alt="Biobarica web"
+                    onclick="openLightbox(this.src)"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- MATERIAL -->
+
+        <section class="case-section">
+
+            <h3 class="case-section-title">
+
+                <i data-lucide="file-text" size="19"></i>
+
+                MATERIAL PROFESIONAL
+
+            </h3>
+
+            <p>
+
+                También desarrollamos piezas físicas para que
+                la empresa pudiera presentar sus servicios
+                profesionalmente en consultorios y otros espacios
+                de atención.
+
+                Entre ellas se encuentran volantes y carpeta
+                médica.
+
+            </p>
+
+
+            <div class="case-grid three">
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/biobarica/volante-01.jpg"
+                    alt="Volante Biobarica"
+                    onclick="openLightbox(this.src)"
+                >
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/biobarica/volante-02.jpg"
+                    alt="Volante Biobarica"
+                    onclick="openLightbox(this.src)"
+                >
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/biobarica/volante-03.jpg"
+                    alt="Carpeta médica"
+                    onclick="openLightbox(this.src)"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- META ADS -->
+
+        <section class="case-section">
+
+            <h3 class="case-section-title">
+
+                <i data-lucide="megaphone" size="19"></i>
+
+                CONTENIDO Y META ADS
+
+            </h3>
+
+            <p>
+
+                Luego del desarrollo de la presencia digital,
+                comenzamos a trabajar en campañas de Meta Ads.
+
+                <br><br>
+
+                Durante más de un año se han desarrollado
+                campañas publicitarias de manera semanal,
+                acompañadas por la creación de contenido para
+                Instagram y Facebook: reels, imágenes,
+                historias y diferentes piezas adaptadas a
+                objetivos publicitarios.
+
+            </p>
+
+
+            <div class="case-grid three">
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/biobarica/ads-01.jpg"
+                    alt="Meta Ads Biobarica"
+                    onclick="openLightbox(this.src)"
+                >
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/biobarica/ads-02.jpg"
+                    alt="Contenido Biobarica"
+                    onclick="openLightbox(this.src)"
+                >
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/biobarica/ads-03.jpg"
+                    alt="Contenido Biobarica"
+                    onclick="openLightbox(this.src)"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- AUTOMATIZACIÓN -->
+
+        <section class="case-section">
+
+            <h3 class="case-section-title">
+
+                <i data-lucide="bot" size="19"></i>
+
+                AUTOMATIZACIÓN DE CONSULTAS
+
+            </h3>
+
+            <p>
+
+                Para reducir el trabajo repetitivo de atención
+                inicial desarrollamos un sistema de respuestas
+                automáticas para los primeros mensajes recibidos
+                a través de WhatsApp, Instagram y Messenger.
+
+                Esto permite organizar mejor las consultas y
+                orientar inicialmente a las personas que entran
+                en contacto con la empresa.
+
+            </p>
+
+
+            <div class="case-grid">
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/biobarica/automatizacion-01.jpg"
+                    alt="Automatización Biobarica"
+                    onclick="openLightbox(this.src)"
+                >
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/biobarica/automatizacion-02.jpg"
+                    alt="Automatización Biobarica"
+                    onclick="openLightbox(this.src)"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- AGENDA -->
+
+        <section class="case-section">
+
+            <h3 class="case-section-title">
+
+                <i data-lucide="calendar-days" size="19"></i>
+
+                AGENDA DE PACIENTES
+
+            </h3>
+
+            <p>
+
+                Cuando el volumen de pacientes comenzó a crecer,
+                desarrollamos una extensión personalizada del
+                sitio web: una agenda de pacientes diseñada
+                específicamente para el uso diario del negocio.
+
+                <br><br>
+
+                El sistema cuenta con una interfaz diseñada
+                para facilitar el uso, una base de datos,
+                servidor propio e infraestructura para alojar
+                la aplicación.
+
+            </p>
+
+
+            <div class="case-grid three">
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/biobarica/agenda-01.jpg"
+                    alt="Agenda de pacientes"
+                    onclick="openLightbox(this.src)"
+                >
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/biobarica/agenda-02.jpg"
+                    alt="Agenda de pacientes"
+                    onclick="openLightbox(this.src)"
+                >
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/biobarica/agenda-03.jpg"
+                    alt="Agenda de pacientes"
+                    onclick="openLightbox(this.src)"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- RESULTADOS -->
+
+        <section class="case-section">
+
+            <h3 class="case-section-title">
+
+                <i data-lucide="trending-up" size="19"></i>
+
+                RESULTADOS
+
+            </h3>
+
+            <p>
+
+                Según los datos proporcionados por la clienta,
+                las campañas generan actualmente aproximadamente
+                entre 60 y 100 turnos mensuales.
+
+            </p>
+
+
+            <div class="highlight-grid">
+
+                <div class="highlight">
+
+                    <div class="highlight-number">
+                        60–100
+                    </div>
+
+                    <div class="highlight-text">
+                        turnos aproximados
+                        por mes
+                    </div>
+
+                </div>
+
+
+                <div class="highlight">
+
+                    <div class="highlight-number">
+                        $55.000
+                    </div>
+
+                    <div class="highlight-text">
+                        valor informado
+                        por turno
+                    </div>
+
+                </div>
+
+
+                <div class="highlight">
+
+                    <div class="highlight-number">
+                        +1 año
+                    </div>
+
+                    <div class="highlight-text">
+                        de campañas
+                        semanales
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <div class="modal-cta">
+
+            <p>
+                El proyecto continúa activo y evolucionando
+                junto con las necesidades del negocio.
+            </p>
+
+            <a
+                href="https://biobaricalaplata.com"
+                target="_blank"
+            >
+
+                VISITAR SITIO WEB
+
+                <i data-lucide="external-link" size="15"></i>
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================================================
+     MODAL: PREDIO 98
+========================================================= -->
+
+<div
+    class="project-modal"
+    id="modal-predio98"
+    onclick="closeOnBackground(event, 'predio98')"
+>
+
+<div class="modal-window">
+
+    <div class="modal-header">
+
+        <span class="modal-header-title">
+            CASO DE ESTUDIO · PREDIO 98
+        </span>
+
+        <button
+            class="modal-close"
+            onclick="closeProject('predio98')"
+        >
+
+            <i data-lucide="x" size="19"></i>
+
+        </button>
+
+    </div>
+
+
+    <div class="modal-content">
+
+
+        <div class="modal-eyebrow">
+
+            <i data-lucide="instagram" size="16"></i>
+
+            CONTENIDO Y PRESENCIA DIGITAL
+
+        </div>
+
+
+        <h2>
+            PREDIO
+            <span class="text-neon">
+                98
+            </span>
+        </h2>
+
+
+        <p class="modal-intro">
+
+            Trabajo enfocado principalmente en mantener activa
+            y profesional la presencia digital de Predio 98,
+            una marca con una comunidad consolidada en La Plata.
+
+            El objetivo no es perseguir únicamente crecimiento
+            de seguidores, sino mantener informada y activa
+            a la comunidad existente.
+
+        </p>
+
+
+        <section class="case-section">
+
+            <h3 class="case-section-title">
+
+                <i data-lucide="images" size="19"></i>
+
+                CONTENIDO PARA REDES
+
+            </h3>
+
+            <p>
+
+                Desarrollo de reels, imágenes e historias
+                adaptadas a las novedades, servicios y
+                comunicación cotidiana de la marca.
+
+                El contenido permite mantener activa la cuenta
+                y mantener informados a los aproximadamente
+                3.000 seguidores de Instagram.
+
+            </p>
+
+
+            <div class="case-grid three">
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/predio98/instagram-01.jpg"
+                    alt="Predio 98 Instagram"
+                    onclick="openLightbox(this.src)"
+                >
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/predio98/instagram-02.jpg"
+                    alt="Predio 98 Instagram"
+                    onclick="openLightbox(this.src)"
+                >
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/predio98/instagram-03.jpg"
+                    alt="Predio 98 Instagram"
+                    onclick="openLightbox(this.src)"
+                >
+
+            </div>
+
+        </section>
+
+
+        <section class="case-section">
+
+            <h3 class="case-section-title">
+
+                <i data-lucide="globe" size="19"></i>
+
+                DESARROLLO WEB
+
+            </h3>
+
+            <p>
+
+                También desarrollamos un sitio web para Predio 98,
+                creando una presencia digital propia que reúne
+                información de la marca y sus servicios.
+
+            </p>
+
+
+            <div class="case-grid">
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/predio98/web-01.jpg"
+                    alt="Web Predio 98"
+                    onclick="openLightbox(this.src)"
+                >
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/predio98/web-02.jpg"
+                    alt="Web Predio 98"
+                    onclick="openLightbox(this.src)"
+                >
+
+            </div>
+
+        </section>
+
+
+        <section class="case-section">
+
+            <h3 class="case-section-title">
+
+                <i data-lucide="bot" size="19"></i>
+
+                AUTOMATIZACIÓN
+
+            </h3>
+
+            <p>
+
+                También automatizamos parte de las respuestas
+                a las consultas que llegan diariamente mediante
+                Instagram y Messenger.
+
+                De esta manera, las consultas frecuentes pueden
+                recibir una respuesta inicial sin depender
+                permanentemente de una intervención manual.
+
+            </p>
+
+
+            <div class="case-grid">
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/predio98/automatizacion-01.jpg"
+                    alt="Automatización Predio 98"
+                    onclick="openLightbox(this.src)"
+                >
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/predio98/automatizacion-02.jpg"
+                    alt="Automatización Predio 98"
+                    onclick="openLightbox(this.src)"
+                >
+
+            </div>
+
+        </section>
+
+
+        <div class="modal-cta">
+
+            <p>
+                Una estrategia digital no siempre consiste
+                en conseguir más seguidores. A veces consiste
+                en mantener activa y útil la comunidad que
+                una empresa ya construyó.
+            </p>
+
+            <a
+                href="https://predio98.netlify.app"
+                target="_blank"
+            >
+
+                VER SITIO WEB
+
+                <i data-lucide="external-link" size="15"></i>
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================================================
+     MODAL: PALACIO DEL PEINADOR
+========================================================= -->
+
+<div
+    class="project-modal"
+    id="modal-palacio"
+    onclick="closeOnBackground(event, 'palacio')"
+>
+
+<div class="modal-window">
+
+    <div class="modal-header">
+
+        <span class="modal-header-title">
+            CASO DE ESTUDIO · EL PALACIO DEL PEINADOR
+        </span>
+
+        <button
+            class="modal-close"
+            onclick="closeProject('palacio')"
+        >
+
+            <i data-lucide="x" size="19"></i>
+
+        </button>
+
+    </div>
+
+
+    <div class="modal-content">
+
+
+        <div class="modal-eyebrow">
+
+            <i data-lucide="graduation-cap" size="16"></i>
+
+            EDUCACIÓN DIGITAL · E-COMMERCE
+
+        </div>
+
+
+        <h2>
+
+            EL PALACIO
+            <span class="text-neon">
+                DEL PEINADOR
+            </span>
+
+        </h2>
+
+
+        <p class="modal-intro">
+
+            Proyecto desarrollado directamente junto a los
+            dueños de El Palacio del Peinador, combinando
+            formación digital y comercio electrónico.
+
+        </p>
+
+
+        <section class="case-section">
+
+            <h3 class="case-section-title">
+
+                <i data-lucide="video" size="19"></i>
+
+                CURSOS DIGITALES
+
+            </h3>
+
+            <p>
+
+                Desarrollo de cursos digitales de peluquería
+                para la firma, trabajando la presentación,
+                estructura y experiencia de los contenidos
+                destinados a formación online.
+
+            </p>
+
+
+            <div class="case-grid three">
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/palacio/curso-01.jpg"
+                    alt="Curso digital"
+                    onclick="openLightbox(this.src)"
+                >
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/palacio/curso-02.jpg"
+                    alt="Curso digital"
+                    onclick="openLightbox(this.src)"
+                >
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/palacio/curso-03.jpg"
+                    alt="Curso digital"
+                    onclick="openLightbox(this.src)"
+                >
+
+            </div>
+
+        </section>
+
+
+        <section class="case-section">
+
+            <h3 class="case-section-title">
+
+                <i data-lucide="shopping-bag" size="19"></i>
+
+                TIENDA ONLINE
+
+            </h3>
+
+            <p>
+
+                También desarrollamos y administramos la tienda
+                online de la firma.
+
+                El proyecto está pensado para presentar los
+                productos de manera profesional y facilitar
+                el proceso de compra.
+
+            </p>
+
+
+            <div class="case-grid">
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/palacio/web-01.jpg"
+                    alt="Tienda online"
+                    onclick="openLightbox(this.src)"
+                >
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/palacio/web-02.jpg"
+                    alt="Tienda online"
+                    onclick="openLightbox(this.src)"
+                >
+
+            </div>
+
+        </section>
+
+
+        <div class="modal-cta">
+
+            <p>
+                Unimos contenido educativo y una infraestructura
+                digital orientada a la comercialización.
+            </p>
+
+            <a
+                href="https://elpalaciodelpeinador.com.ar"
+                target="_blank"
+            >
+
+                VISITAR TIENDA
+
+                <i data-lucide="external-link" size="15"></i>
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================================================
+     MODAL: PIEDRA LIBRE
+========================================================= -->
+
+<div
+    class="project-modal"
+    id="modal-piedra"
+    onclick="closeOnBackground(event, 'piedra')"
+>
+
+<div class="modal-window">
+
+    <div class="modal-header">
+
+        <span class="modal-header-title">
+            CASO DE ESTUDIO · PIEDRA LIBRE
+        </span>
+
+        <button
+            class="modal-close"
+            onclick="closeProject('piedra')"
+        >
+
+            <i data-lucide="x" size="19"></i>
+
+        </button>
+
+    </div>
+
+
+    <div class="modal-content">
+
+
+        <div class="modal-eyebrow">
+
+            <i data-lucide="palette" size="16"></i>
+
+            WEB · DISEÑO · CONTENIDO
+
+        </div>
+
+
+        <h2>
+
+            PIEDRA
+            <span class="text-neon">
+                LIBRE
+            </span>
+
+        </h2>
+
+
+        <p class="modal-intro">
+
+            Proyecto actualmente en desarrollo que combina
+            desarrollo web, infraestructura, diseño visual
+            y creación de contenido para redes sociales.
+
+        </p>
+
+
+        <section class="case-section">
+
+            <h3 class="case-section-title">
+
+                <i data-lucide="globe" size="19"></i>
+
+                DESARROLLO WEB E INFRAESTRUCTURA
+
+            </h3>
+
+            <p>
+
+                Desarrollo y administración del sitio web,
+                actualmente en proceso de construcción.
+
+                La infraestructura incluye hosting y un
+                servidor propio para el proyecto.
+
+            </p>
+
+
+            <div class="case-grid">
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/piedra-libre/web-01.jpg"
+                    alt="Piedra Libre web"
+                    onclick="openLightbox(this.src)"
+                >
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/piedra-libre/web-02.jpg"
+                    alt="Piedra Libre web"
+                    onclick="openLightbox(this.src)"
+                >
+
+            </div>
+
+        </section>
+
+
+        <section class="case-section">
+
+            <h3 class="case-section-title">
+
+                <i data-lucide="image" size="19"></i>
+
+                DISEÑO DE CONTENIDO
+
+            </h3>
+
+            <p>
+
+                También desarrollamos las imágenes utilizadas
+                para presentar los disfraces y personajes de
+                Piedra Libre en redes sociales.
+
+                El objetivo es conseguir piezas visualmente
+                atractivas que permitan presentar rápidamente
+                cada producto.
+
+            </p>
+
+
+            <div class="case-grid three">
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/piedra-libre/disfraz-01.jpg"
+                    alt="Diseño Piedra Libre"
+                    onclick="openLightbox(this.src)"
+                >
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/piedra-libre/disfraz-02.jpg"
+                    alt="Diseño Piedra Libre"
+                    onclick="openLightbox(this.src)"
+                >
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/piedra-libre/disfraz-03.jpg"
+                    alt="Diseño Piedra Libre"
+                    onclick="openLightbox(this.src)"
+                >
+
+            </div>
+
+        </section>
+
+
+        <section class="case-section">
+
+            <h3 class="case-section-title">
+
+                <i data-lucide="layers" size="19"></i>
+
+                CATÁLOGOS PARA REDES
+
+            </h3>
+
+            <p>
+
+                Periódicamente desarrollamos catálogos en formato
+                de imágenes para que la marca pueda presentar
+                sus disfraces y cabezudos en Instagram.
+
+                Algunas de estas piezas tienen una circulación
+                especialmente alta dentro de la comunidad.
+
+            </p>
+
+
+            <div class="case-grid three">
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/piedra-libre/catalogo-01.jpg"
+                    alt="Catálogo Piedra Libre"
+                    onclick="openLightbox(this.src)"
+                >
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/piedra-libre/catalogo-02.jpg"
+                    alt="Catálogo Piedra Libre"
+                    onclick="openLightbox(this.src)"
+                >
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/piedra-libre/catalogo-03.jpg"
+                    alt="Catálogo Piedra Libre"
+                    onclick="openLightbox(this.src)"
+                >
+
+            </div>
+
+        </section>
+
+
+        <div class="modal-cta">
+
+            <p>
+                Un proyecto que combina desarrollo,
+                infraestructura y diseño de contenido
+                dentro de una misma solución digital.
+            </p>
+
+            <a
+                href="https://piedra-libre.netlify.app"
+                target="_blank"
+            >
+
+                VER SITIO WEB
+
+                <i data-lucide="external-link" size="15"></i>
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================================================
+     MODAL: GEMINIX
+========================================================= -->
+
+<div
+    class="project-modal"
+    id="modal-geminix"
+    onclick="closeOnBackground(event, 'geminix')"
+>
+
+<div class="modal-window">
+
+    <div class="modal-header">
+
+        <span class="modal-header-title">
+            CASO DE ESTUDIO · JOYERÍA GEMINIX
+        </span>
+
+        <button
+            class="modal-close"
+            onclick="closeProject('geminix')"
+        >
+
+            <i data-lucide="x" size="19"></i>
+
+        </button>
+
+    </div>
+
+
+    <div class="modal-content">
+
+
+        <div class="modal-eyebrow">
+
+            <i data-lucide="gem" size="16"></i>
+
+            PUBLICIDAD · REDES · AUTOMATIZACIÓN
+
+        </div>
+
+
+        <h2>
+
+            JOYERÍA
+            <span class="text-neon">
+                GEMINIX
+            </span>
+
+        </h2>
+
+
+        <p class="modal-intro">
+
+            Gestión de diferentes puntos de contacto digitales
+            para una marca de joyería con una comunidad
+            consolidada en redes sociales.
+
+        </p>
+
+
+        <section class="case-section">
+
+            <h3 class="case-section-title">
+
+                <i data-lucide="megaphone" size="19"></i>
+
+                META ADS
+
+            </h3>
+
+            <p>
+
+                Administración y optimización de campañas
+                publicitarias de Meta Ads, trabajando sobre
+                piezas creativas y segmentación para llegar
+                a potenciales compradores.
+
+            </p>
+
+
+            <div class="case-grid three">
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/geminix/ads-01.jpg"
+                    alt="Geminix Meta Ads"
+                    onclick="openLightbox(this.src)"
+                >
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/geminix/ads-02.jpg"
+                    alt="Geminix Meta Ads"
+                    onclick="openLightbox(this.src)"
+                >
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/geminix/ads-03.jpg"
+                    alt="Geminix Meta Ads"
+                    onclick="openLightbox(this.src)"
+                >
+
+            </div>
+
+        </section>
+
+
+        <section class="case-section">
+
+            <h3 class="case-section-title">
+
+                <i data-lucide="calendar" size="19"></i>
+
+                GESTIÓN DE REDES
+
+            </h3>
+
+            <p>
+
+                Programación de publicaciones para Instagram
+                y Facebook, manteniendo una presencia activa
+                y coherente de la marca.
+
+                La cuenta de Facebook cuenta con una comunidad
+                de aproximadamente 20.000 seguidores.
+
+            </p>
+
+
+            <div class="case-grid three">
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/geminix/instagram-01.jpg"
+                    alt="Geminix Instagram"
+                    onclick="openLightbox(this.src)"
+                >
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/geminix/instagram-02.jpg"
+                    alt="Geminix Instagram"
+                    onclick="openLightbox(this.src)"
+                >
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/geminix/instagram-03.jpg"
+                    alt="Geminix Instagram"
+                    onclick="openLightbox(this.src)"
+                >
+
+            </div>
+
+        </section>
+
+
+        <section class="case-section">
+
+            <h3 class="case-section-title">
+
+                <i data-lucide="bot" size="19"></i>
+
+                AUTOMATIZACIÓN
+
+            </h3>
+
+            <p>
+
+                Automatización de respuestas para reducir
+                el trabajo manual asociado a consultas
+                frecuentes y facilitar el primer contacto
+                con potenciales clientes.
+
+            </p>
+
+
+            <div class="case-grid">
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/geminix/automatizacion-01.jpg"
+                    alt="Automatización Geminix"
+                    onclick="openLightbox(this.src)"
+                >
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/geminix/automatizacion-02.jpg"
+                    alt="Automatización Geminix"
+                    onclick="openLightbox(this.src)"
+                >
+
+            </div>
+
+        </section>
+
+
+        <section class="case-section">
+
+            <h3 class="case-section-title">
+
+                <i data-lucide="globe" size="19"></i>
+
+                CATÁLOGO ONLINE
+
+            </h3>
+
+            <p>
+
+                Desarrollo de una página web simple orientada
+                a mostrar el catálogo de productos de la marca
+                de forma clara y accesible.
+
+            </p>
+
+
+            <div class="case-grid">
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/geminix/web-01.jpg"
+                    alt="Catálogo Geminix"
+                    onclick="openLightbox(this.src)"
+                >
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/geminix/web-02.jpg"
+                    alt="Catálogo Geminix"
+                    onclick="openLightbox(this.src)"
+                >
+
+            </div>
+
+        </section>
+
+
+        <div class="modal-cta">
+
+            <p>
+                Una estrategia que conecta publicidad,
+                contenido, atención y catálogo digital.
+            </p>
+
+            <a
+                href="https://joyeriageminix.netlify.app"
+                target="_blank"
+            >
+
+                VER CATÁLOGO
+
+                <i data-lucide="external-link" size="15"></i>
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================================================
+     MODAL: SOPHIA
+========================================================= -->
+
+<div
+    class="project-modal"
+    id="modal-sophia"
+    onclick="closeOnBackground(event, 'sophia')"
+>
+
+<div class="modal-window">
+
+    <div class="modal-header">
+
+        <span class="modal-header-title">
+            CASO DE ESTUDIO · SOPHIA
+        </span>
+
+        <button
+            class="modal-close"
+            onclick="closeProject('sophia')"
+        >
+
+            <i data-lucide="x" size="19"></i>
+
+        </button>
+
+    </div>
+
+
+    <div class="modal-content">
+
+
+        <div class="modal-eyebrow">
+
+            <i data-lucide="shopping-cart" size="16"></i>
+
+            DESARROLLO E-COMMERCE A MEDIDA
+
+        </div>
+
+
+        <h2>
+
+            SOPHIA
+            <span class="text-neon">
+                SHOP
+            </span>
+
+        </h2>
+
+
+        <p class="modal-intro">
+
+            Desarrollo completo de una tienda online diseñada
+            específicamente para las necesidades del negocio,
+            con infraestructura propia y herramientas
+            desarrolladas para simplificar la administración
+            cotidiana.
+
+        </p>
+
+
+        <section class="case-section">
+
+            <h3 class="case-section-title">
+
+                <i data-lucide="code-2" size="19"></i>
+
+                DESARROLLO A MEDIDA
+
+            </h3>
+
+            <p>
+
+                En lugar de utilizar una solución genérica,
+                desarrollamos una tienda adaptada a los
+                procesos específicos del negocio.
+
+                Esto permite controlar directamente diferentes
+                aspectos del funcionamiento de la plataforma.
+
+            </p>
+
+
+            <div class="case-grid">
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/sophia/web-01.jpg"
+                    alt="Sophia Shop"
+                    onclick="openLightbox(this.src)"
+                >
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/sophia/web-02.jpg"
+                    alt="Sophia Shop"
+                    onclick="openLightbox(this.src)"
+                >
+
+            </div>
+
+        </section>
+
+
+        <section class="case-section">
+
+            <h3 class="case-section-title">
+
+                <i data-lucide="package" size="19"></i>
+
+                GESTIÓN DE PRODUCTOS Y STOCK
+
+            </h3>
+
+            <p>
+
+                La plataforma incorpora herramientas propias
+                para facilitar la carga de productos y controlar
+                los límites de stock.
+
+                El objetivo es que la administración de la tienda
+                sea rápida y sencilla para quienes la utilizan.
+
+            </p>
+
+
+            <div class="case-grid">
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/sophia/productos.jpg"
+                    alt="Gestión de productos"
+                    onclick="openLightbox(this.src)"
+                >
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/sophia/stock.jpg"
+                    alt="Gestión de stock"
+                    onclick="openLightbox(this.src)"
+                >
+
+            </div>
+
+        </section>
+
+
+        <section class="case-section">
+
+            <h3 class="case-section-title">
+
+                <i data-lucide="clipboard-list" size="19"></i>
+
+                PEDIDOS
+
+            </h3>
+
+            <p>
+
+                El sistema organiza los pedidos de manera clara
+                para facilitar su seguimiento y gestión.
+
+                Esto permite centralizar la información necesaria
+                para procesar las compras.
+
+            </p>
+
+
+            <div class="case-grid">
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/sophia/pedidos.jpg"
+                    alt="Gestión de pedidos"
+                    onclick="openLightbox(this.src)"
+                >
+
+                <img
+                    class="case-image"
+                    src="img/portfolio/sophia/pedido-detalle.jpg"
+                    alt="Detalle de pedido"
+                    onclick="openLightbox(this.src)"
+                >
+
+            </div>
+
+        </section>
+
+
+        <section class="case-section">
+
+            <h3 class="case-section-title">
+
+                <i data-lucide="credit-card" size="19"></i>
+
+                SISTEMA DE PAGOS
+
+            </h3>
+
+            <p>
+
+                También se integró el sistema necesario para
+                gestionar los pagos de las compras realizadas
+                a través de la tienda.
+
+            </p>
+
+        </section>
+
+
+        <section class="case-section">
+
+            <h3 class="case-section-title">
+
+                <i data-lucide="server" size="19"></i>
+
+                INFRAESTRUCTURA
+
+            </h3>
+
+            <p>
+
+                El proyecto utiliza servidores propios,
+                permitiendo tener mayor control sobre la
+                infraestructura y el funcionamiento de la
+                plataforma.
+
+            </p>
+
+        </section>
+
+
+        <div class="modal-cta">
+
+            <p>
+                Una tienda desarrollada alrededor del negocio,
+                y no un negocio obligado a adaptarse a una
+                plataforma genérica.
+            </p>
+
+            <a
+                href="https://sophia-shop.netlify.app"
+                target="_blank"
+            >
+
+                VER TIENDA
+
+                <i data-lucide="external-link" size="15"></i>
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================================================
+     LIGHTBOX
+========================================================= -->
+
+<div
+    class="lightbox"
+    id="lightbox"
+    onclick="closeLightbox(event)"
+>
+
+    <button
+        class="lightbox-close"
+        onclick="closeLightbox()"
+    >
+
+        <i data-lucide="x" size="20"></i>
+
+    </button>
+
+
+    <img
+        id="lightboxImage"
+        src=""
+        alt="Imagen ampliada"
+    >
+
+</div>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    NOVA STUDIO · SOLUCIONES DIGITALES
+
+</footer>
+
+
+
+<script>
+
+    /* =====================================================
+       MODALS
+    ===================================================== */
+
+    function openProject(project) {
+
+        const modal =
+            document.getElementById('modal-' + project);
+
+        if (!modal) return;
+
+        modal.classList.add('active');
+
+        document.body.style.overflow = 'hidden';
+
+    }
+
+
+    function closeProject(project) {
+
+        const modal =
+            document.getElementById('modal-' + project);
+
+        if (!modal) return;
+
+        modal.classList.remove('active');
+
+        document.body.style.overflow = '';
+
+    }
+
+
+    function closeOnBackground(event, project) {
+
+        if (
+            event.target.classList.contains('project-modal')
+        ) {
+
+            closeProject(project);
+
+        }
+
+    }
+
+
+    /* =====================================================
+       ESC
+    ===================================================== */
+
+    document.addEventListener('keydown', function(event) {
+
+        if (event.key === 'Escape') {
+
+            document
+                .querySelectorAll('.project-modal.active')
+                .forEach(function(modal) {
+
+                    modal.classList.remove('active');
+
+                });
+
+            document
+                .getElementById('lightbox')
+                .classList.remove('active');
+
+            document.body.style.overflow = '';
+
+        }
+
+    });
+
+
+    /* =====================================================
+       LIGHTBOX
+    ===================================================== */
+
+    function openLightbox(src) {
+
+        const lightbox =
+            document.getElementById('lightbox');
+
+        const image =
+            document.getElementById('lightboxImage');
+
+        image.src = src;
+
+        lightbox.classList.add('active');
+
+    }
+
+
+    function closeLightbox(event) {
+
+        if (
+            event &&
+            event.target &&
+            event.target.id !== 'lightbox' &&
+            !event.target.closest('.lightbox-close')
+        ) {
+            return;
+        }
+
+        document
+            .getElementById('lightbox')
+            .classList.remove('active');
+
+    }
+
+
+    /* =====================================================
+       LUCIDE
+    ===================================================== */
+
+    lucide.createIcons();
+
+</script>
+
+
+</body>
+
+</html>

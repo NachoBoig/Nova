@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVA STUDIO | IDENTIDAD Y PRESENCIA DIGITAL</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg-dark: #070510;
+            --card-bg: rgba(20, 14, 40, 0.65);
+            --border-glow: rgba(168, 85, 247, 0.35);
+            --neon-purple: #a855f7;
+            --neon-light: #c084fc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 20% 15%, rgba(139, 92, 246, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 80% 50%, rgba(168, 85, 247, 0.15) 0%, transparent 45%),
+                radial-gradient(circle at 50% 85%, rgba(99, 102, 241, 0.15) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        /* Estrellas / partículas de fondo */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                radial-gradient(1.5px 1.5px at 20px 30px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 90px 40px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 160px 120px, rgba(168, 85, 247, 0.9), rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 250px 250px;
+            opacity: 0.35;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Estilo Glassmorphism */
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-glow);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4),
+                        0 0 15px rgba(168, 85, 247, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(168, 85, 247, 0.7);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5),
+                        0 0 25px rgba(168, 85, 247, 0.3);
+            transform: translateY(-4px);
+        }
+
+        /* Neón y Botones */
+        .text-neon {
+            color: var(--neon-purple);
+            text-shadow: 0 0 12px rgba(168, 85, 247, 0.6);
+        }
+
+        .btn-neon {
+            background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+            color: #ffffff;
+            font-weight: 700;
+            padding: 16px 32px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-neon:hover {
+            box-shadow: 0 0 35px rgba(168, 85, 247, 0.85);
+            transform: scale(1.03);
+        }
+
+        /* Header / Navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 8%;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .logo-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+        }
+
+        .logo-sub {
+            font-size: 0.65rem;
+            letter-spacing: 4px;
+            color: var(--neon-purple);
+        }
+
+        nav a {
+            color: #d1d5db;
+            text-decoration: none;
+            margin-left: 28px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--neon-purple);
+            text-shadow: 0 0 8px rgba(168, 85, 247, 0.5);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            padding: 60px 0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            line-height: 1.15;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .hero-graphic {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Diagrama Neón ilustrativo */
+        .tech-diagram {
+            width: 100%;
+            max-width: 380px;
+            height: 280px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .core-glow {
+            width: 90px;
+            height: 90px;
+            background: radial-gradient(circle, #a855f7 0%, transparent 70%);
+            border-radius: 50%;
+            box-shadow: 0 0 30px #a855f7;
+            animation: pulse 3s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.9); opacity: 0.7; }
+            100% { transform: scale(1.1); opacity: 1; }
+        }
+
+        /* Servicios */
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 80px 0 40px;
+            letter-spacing: 1px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            padding: 36px 24px;
+            text-align: center;
+        }
+
+        .icon-box {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: rgba(168, 85, 247, 0.1);
+            border: 1px solid var(--neon-purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--neon-purple);
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+        }
+
+        .service-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: #a1a1aa;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* Trabajos Previos */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .portfolio-card {
+            padding: 24px;
+        }
+
+        .mockup-frame {
+            width: 100%;
+            height: 200px;
+            background: #120e24;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        .client-badge {
+            display: inline-block;
+            background: rgba(168, 85, 247, 0.15);
+            border: 1px solid var(--neon-purple);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        /* Formulario */
+        .form-container {
+            max-width: 650px;
+            margin: 80px auto;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(10, 6, 25, 0.8);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 12px;
+            color: white;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.8rem;
+            color: #71717a;
+            letter-spacing: 2px;
+        }
+
+        /* Responsivo */
+        @media (max-width: 980px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .hero { grid-template-columns: 1fr; text-align: center; }
+            .services-grid { grid-template-columns: 1fr; }
+            .hero-graphic { margin-top: 30px; }
+            .form-grid { grid-template-columns: 1fr; }
+            nav { display: none; }
+        }
+    
+        .service-hero {
+            padding: 75px 0 55px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            min-height: 500px;
+        }
+
+        .service-hero-content {
+            min-width: 0;
+        }
+
+        .service-hero-graphic {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .service-hero-graphic img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            filter: drop-shadow(0 0 25px rgba(168, 85, 247, 0.15));
+        }
+        .eyebrow {
+            display: inline-flex; align-items: center; gap: 8px;
+            color: var(--neon-light); font-weight: 800; font-size: .78rem;
+            letter-spacing: 2px; margin-bottom: 18px;
+        }
+        .service-hero h1 { max-width: 850px; }
+        .service-hero .lead { max-width: 780px; color: #c4c4cc; font-size: 1.1rem; line-height: 1.7; margin-top: 22px; }
+        .service-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-top: 45px;
+        }
+        .detail-card { padding: 30px; }
+        .detail-card h3 { margin: 16px 0 10px; font-size: 1.05rem; }
+        .detail-card p { color: #a1a1aa; line-height: 1.65; font-size: .92rem; }
+        .mini-icon {
+            width: 52px; height: 52px; border-radius: 15px;
+            border: 1px solid var(--neon-purple); color: var(--neon-purple);
+            background: rgba(168,85,247,.08); display:flex; align-items:center;
+            justify-content:center; box-shadow: 0 0 16px rgba(168,85,247,.2);
+        }
+        .process { margin-top: 75px; }
+        .process-list { display:grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 35px; }
+        .step { padding: 24px 18px; text-align:center; }
+        .step-num {
+            width: 38px; height: 38px; margin: 0 auto 14px; border-radius: 50%;
+            display:flex; align-items:center; justify-content:center;
+            border:1px solid var(--neon-purple); color:var(--neon-light);
+            font-weight:800; box-shadow:0 0 14px rgba(168,85,247,.2);
+        }
+        .step p { color:#a1a1aa; font-size:.85rem; line-height:1.5; }
+        .service-cta { margin: 80px auto; padding: 48px 30px; text-align:center; max-width:850px; }
+        .service-cta h2 { font-size:2rem; margin-bottom:15px; }
+        .service-cta p { color:#a1a1aa; max-width:650px; margin:0 auto 28px; line-height:1.65; }
+        .back-link { color:#c4c4cc; text-decoration:none; font-size:.82rem; font-weight:700; letter-spacing:.7px; }
+        .back-link:hover { color:var(--neon-purple); }
+        @media (max-width: 900px) {
+            .process-list { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 650px) {
+            .service-grid, .process-list { grid-template-columns: 1fr; }
+            .service-hero { padding-top: 45px; }
+            .service-hero h1 { font-size: 2.2rem; }
+            .service-hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .service-hero-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .service-hero-graphic img {
+                max-width: 360px;
+            }
+
+            .section-title { font-size: 2.05rem;}
+        }
+</style>
+</head>
+<body>
+    <header>
+        <a href="NOVA_STUDIO_web_6_servicios.html" class="logo" style="text-decoration:none;color:white;">
+            <span class="logo-title">NOVA</span>
+            <span class="logo-sub">STUDIO</span>
+        </a>
+        <nav>
+            <a href="index.html#servicios">INICIO</a>
+            <a href="#proceso">PROCESO</a>
+            <a href="#contacto">CONTACTO</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="service-hero">
+
+            <div class="service-hero-content">
+
+                <div class="eyebrow">
+                    <i data-lucide="palette" size="17"></i>
+                    POSICIONAR
+                </div>
+
+                <h1>
+                    IDENTIDAD Y
+                    <span class="text-neon">PRESENCIA DIGITAL</span>
+                </h1>
+
+                <p class="lead">
+                    <strong style="color:#fff;">
+                        Construimos una identidad que transmita el nivel real de tu empresa.
+                    </strong>
+                    <br>
+                    Trabajamos la imagen de marca y sus puntos de contacto digitales para conseguir una presencia profesional, reconocible y coherente.
+                </p>
+
+            </div>
+
+            <div class="service-hero-graphic">
+
+                <img
+                    src="Imgs/Ilustraciones/05_identidad_y_presencia_digital.png"
+                    alt="Ilustración de identidad y presencia digital"
+                >
+
+            </div>
+
+        </section>
+
+        <section>
+            <h2 class="section-title">¿QUÉ <span class="text-neon">HACEMOS?</span></h2>
+            <div class="service-grid">
+                <article class="glass-card detail-card">
+                    <div class="mini-icon"><i data-lucide="shapes"></i></div>
+                    <h3>Identidad visual</h3>
+                    <p>Definimos sistemas visuales que hacen que tu empresa sea reconocible y consistente.</p>
+                </article>
+                <article class="glass-card detail-card">
+                    <div class="mini-icon"><i data-lucide="gem"></i></div>
+                    <h3>Branding</h3>
+                    <p>Trabajamos conceptos, recursos gráficos y criterios de comunicación que dan personalidad a la marca.</p>
+                </article>
+                <article class="glass-card detail-card">
+                    <div class="mini-icon"><i data-lucide="refresh-cw"></i></div>
+                    <h3>Rediseño</h3>
+                    <p>Actualizamos marcas existentes cuando su imagen quedó desactualizada o ya no representa al negocio.</p>
+                </article>
+                <article class="glass-card detail-card">
+                    <div class="mini-icon"><i data-lucide="monitor-smartphone"></i></div>
+                    <h3>Perfiles digitales</h3>
+                    <p>Alineamos redes, web y otros canales para que todos comuniquen la misma identidad.</p>
+                </article>
+                <article class="glass-card detail-card">
+                    <div class="mini-icon"><i data-lucide="briefcase-business"></i></div>
+                    <h3>Material comercial</h3>
+                    <p>Diseñamos piezas digitales que tu equipo puede utilizar para presentar y vender sus servicios.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="process" id="proceso">
+            <h2 class="section-title">CÓMO <span class="text-neon">TRABAJAMOS</span></h2>
+            <div class="process-list">
+                <div class="glass-card step">
+                    <div class="step-num">1</div>
+                    <p>Analizamos la identidad actual.</p>
+                </div>
+                <div class="glass-card step">
+                    <div class="step-num">2</div>
+                    <p>Definimos posicionamiento y dirección visual.</p>
+                </div>
+                <div class="glass-card step">
+                    <div class="step-num">3</div>
+                    <p>Desarrollamos el sistema de identidad.</p>
+                </div>
+                <div class="glass-card step">
+                    <div class="step-num">4</div>
+                    <p>Aplicamos la identidad a los canales.</p>
+                </div>
+                <div class="glass-card step">
+                    <div class="step-num">5</div>
+                    <p>Entregamos criterios para mantener consistencia.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="glass-card service-cta" id="contacto">
+            <h2>¿QUERÉS <span class="text-neon">CRECER?</span></h2>
+            <p>Contanos qué necesitás y analizamos cómo podemos aplicar esta solución a tu negocio.</p>
+            <a href="NOVA_STUDIO_web_6_servicios.html#contacto" class="btn-neon">
+                HABLAR CON NOVA
+                <i data-lucide="arrow-right" size="18"></i>
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        NOVA STUDIO · SOLUCIONES DIGITALES
+    </footer>
+    <script>lucide.createIcons();</script>
+</body>
+</html>
