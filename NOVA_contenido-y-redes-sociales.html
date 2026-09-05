@@ -499,28 +499,193 @@
         font-size: 1rem;
     }
 }
-</style>
+/* ==========================================
+           ESTILOS DEL MODAL (UBICACIÓN Y CONTACTO)
+           ========================================== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 2000; /* Z-index mayor al header para evitar choques */
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            color: #1a1a1a;
+            width: 100%;
+            max-width: 550px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            padding: 0;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px; right: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            font-size: 2rem;
+            color: #333;
+            cursor: pointer;
+            z-index: 10;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 240px;
+        }
+
+        .modal-body {
+            padding: 25px 20px;
+            text-align: center;
+        }
+
+        .modal-address {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #111111;
+            margin-bottom: 20px;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .btn-modal {
+            font-size: 0.85rem;
+            padding: 12px 20px;
+            border-radius: 10px;
+        }
+
+        .modal-footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-top: 15px;
+            padding-top: 5px;
+        }
+
+        .modal-footer-socials a {
+            color: #4b5563;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .modal-footer-socials a:hover {
+            color: var(--neon-purple);
+            transform: scale(1.15);
+        }
+
+        /* Botón de contacto estilizado en el Nav */
+.btn-nav-contact {
+    padding: 10px 24px !important;
+    font-size: 0.85rem !important;
+    border-radius: 50px !important;
+    margin-left: 20px;
+}
+
+@media (max-width: 768px) {
+    .btn-nav-contact {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 80%;
+        align-self: center;
+    }
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+    </style>
 </head>
 <body>
-    <header>
-    <a href="index.html" class="logo" style="text-decoration:none;color:white;">
+
+   <!-- Header / Nav -->
+<header>
+    <div class="logo">
         <span class="logo-title">NOVA</span>
         <span class="logo-sub">STUDIO</span>
-    </a>
+    </div>
 
-    <!-- Botón Hamburguesa -->
-    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
-        <i data-lucide="menu" id="menu-icon"></i>
+    <!-- Botón Hamburguesa (solo visible en celular) -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <i data-lucide="menu" id="menuIcon"></i>
     </button>
 
     <!-- Menú de Navegación -->
-    <nav id="nav-menu">
-        <a href="index.html">INICIO</a>
-        <a href="index.html#servicios">SERVICIOS</a>
-        <a href="NOVA_trabajos-previos.html">TRABAJOS PREVIOS</a>
-        <a href="#contacto">CONTACTO</a>
+    <!-- Menú de Navegación -->
+    <nav id="navMenu">
+        <a href="#inicio">INICIO</a>
+        <a href="#servicios">SERVICIOS</a>
+        <a href="#trabajos">TRABAJOS PREVIOS</a>
+        <button id="openModalBtn" class="btn-neon btn-nav-contact">
+            <i data-lucide="rocket" size="18"></i> CONTACTO
+        </button>
     </nav>
 </header>
+
+<!-- Pop-up Modal -->
+<div id="contactModal" class="modal-overlay">
+    <div class="modal-content">
+        <button class="modal-close" id="closeModalBtn">&times;</button>
+        
+        <!-- Mapa correcto en Calle 50 e/ 7 y 8, La Plata -->
+        <div class="map-container">
+            <iframe 
+                src="https://maps.google.com/maps?q=Calle+50+618,+La+Plata,+Buenos+Aires&t=&z=17&ie=UTF8&iwloc=&output=embed" 
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+
+        <div class="modal-body">
+            <p class="modal-address">Calle 50 e/ 7 y 8, La Plata</p>
+
+            <div class="modal-actions">
+                <a href="https://wa.me/5492216928388?text=Hola!" target="_blank" class="btn-neon btn-modal">
+                    <i data-lucide="phone" size="18"></i> +54 9 221 692-8388
+                </a>
+                <a href="mailto:somosnova2026@gmail.com" class="btn-neon btn-modal">
+                    <i data-lucide="mail" size="18"></i> somosnova2026@gmail.com
+                </a>
+            </div>
+
+            <div class="modal-footer-socials">
+                <a href="https://www.instagram.com/studio_nova2026?igsi=ZDNlZDc0MzIxNw==" target="_blank" aria-label="Instagram">
+                    <i data-lucide="instagram" size="22"></i>
+                </a>
+                <a href="https://www.facebook.com/people/NovaStudio/61593624896304/?locale=es_LA" target="_blank" aria-label="Facebook">
+                    <i data-lucide="facebook" size="22"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 
     <main class="container">
         <section class="service-hero">
@@ -618,7 +783,7 @@
         <section class="glass-card service-cta" id="contacto">
             <h2>¿QUERÉS <span class="text-neon">CRECER?</span></h2>
             <p>Contanos qué necesitás y analizamos cómo podemos aplicar esta solución a tu negocio.</p>
-            <a href="https://wa.me/5492216496616?text=Hola!" class="btn-neon" target="_blank">
+            <a href="https://wa.me/5492216928388?text=Hola!" class="btn-neon" target="_blank">
                 HABLAR CON NOVA
                 <i data-lucide="arrow-right" size="18"></i>
             </a>
@@ -641,7 +806,7 @@
  </a>
       
 <!-- FACEBOOK -->
- <a href="">
+ <a href="https://www.facebook.com/people/NovaStudio/61593624896304/?locale=es_LA" target="_blank">
     <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
 	<path d="M0 0h24v24H0z" fill="none" />
 	<g fill="none" stroke="#71717a" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
@@ -651,30 +816,61 @@
 </svg>
  </a>
     </footer>
-<script>
-    // Inicializar íconos Lucide al cargar la página
+ <!-- Inicializar iconos de Lucide -->
+    <script>lucide.createIcons();</script>
+    <script>
+    // Inicializar íconos
     lucide.createIcons();
-
-    const menuToggle = document.getElementById('menu-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    const menuIcon = document.getElementById('menu-icon');
-
-    menuToggle.addEventListener('click', () => {
-        const isActive = navMenu.classList.toggle('active');
-
-        // Cambiar ícono dinámicamente entre hamburguesa y X
-        menuIcon.setAttribute('data-lucide', isActive ? 'x' : 'menu');
-        lucide.createIcons();
-    });
-
-    // Cerrar el menú al presionar un enlace
-    document.querySelectorAll('#nav-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            menuIcon.setAttribute('data-lucide', 'menu');
-            lucide.createIcons();
-        });
-    });
 </script>
+
+<!-- Script de Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        // Inicializar íconos Lucide
+        lucide.createIcons();
+
+        // 1. Lógica del Menú Hamburguesa
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        const navLinks = navMenu.querySelectorAll('a');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // 2. Lógica del Modal de Contacto
+        const contactModal = document.getElementById('contactModal');
+        const openModalBtn = document.getElementById('openModalBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        // Abrir Modal y cerrar menú mobile si estuviera abierto
+        openModalBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            contactModal.classList.add('active');
+            navMenu.classList.remove('active'); // Previene superposición
+        });
+
+        // Cerrar Modal desde el botón "X"
+        closeModalBtn.addEventListener('click', () => {
+            contactModal.classList.remove('active');
+        });
+
+        // Cerrar Modal al hacer clic fuera del contenido
+        contactModal.addEventListener('click', (e) => {
+            if (e.target === contactModal) {
+                contactModal.classList.remove('active');
+            }
+        });
+
+        // Cerrar menú mobile al tocar cualquier otro enlace
+        navLinks.forEach(link => {
+            if (link !== openModalBtn) {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
